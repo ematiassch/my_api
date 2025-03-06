@@ -1,10 +1,9 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/execute_script', methods=['POST'])
 def execute_script():
     # Aquí irá el código de tu script de Python
-  import datetime
+    import datetime
 import os
 
 def main():
@@ -36,4 +35,11 @@ def main():
 if __name__ == "__main__":
     main()
     return 'Script ejecutado con éxito'
+
+@app.route('/execute_script', methods=['POST'])
+def execute_script_route():
+    return execute_script()
+
+if __name__ == '__main__':
+    app.run(port=5000)
 
